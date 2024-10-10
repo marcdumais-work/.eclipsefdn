@@ -481,5 +481,38 @@ orgs.newOrg('eclipse-cdt-cloud') {
         default_workflow_permissions: "write",
       },
     },
+    orgs.newRepo('trace-viewer-examples') {
+      allow_merge_commit: false,
+      allow_update_branch: false,
+      default_branch: "master",
+      delete_branch_on_merge: false,
+      dependabot_security_updates_enabled: true,
+      description: "This repository contains various example applications that integrate trace viewing capabilities. The applications are not meant to be very polished but can serve as a base to develop such",
+      homepage: "",
+      topics+: [
+        "trace-viewer",
+        "theia-traceviewer",
+        "vscode-trace-extension",
+        "tsp-typescript-client",
+        "tsp",
+        "traceviewer-base",
+        "traceviewer-react-components",
+        "timeline-chart",
+        "theia-extension",
+        "vscode-extension",
+        "trace",
+        "trace-visualization",
+        "eclipse-theia",
+        "eclipse",
+        "eclipse-foundation"
+      ],
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+      branch_protection_rules: [
+        custom_branch_protection_rule_trace('master'),
+      ],
+    },
   ],
 }
